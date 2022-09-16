@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": {
+    "singularName": "category",
+    "pluralName": "categories",
+    "displayName": "categories",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "ordered": {
+      "type": "integer",
+      "unique": true,
+      "required": true,
+      "default": 0
+    },
+    "apps": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::app.app",
+      "mappedBy": "category"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_sub_comments_sub_comments",
+  "info": {
+    "displayName": "subComments",
+    "icon": "ad",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "subComment": {
+      "type": "string"
+    },
+    "text2": {
+      "type": "component",
+      "repeatable": true,
+      "component": "text2.text2"
+    }
+  }
+}
