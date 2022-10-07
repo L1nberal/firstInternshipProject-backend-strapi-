@@ -30,7 +30,7 @@
         "audios"
       ]
     },
-    "Email": {
+    "email": {
       "type": "email",
       "required": true
     },
@@ -45,11 +45,30 @@
     "website": {
       "type": "string"
     },
-    "apps": {
+    "appsDeveloped": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "oneToMany",
       "target": "api::app.app",
-      "mappedBy": "organisations"
+      "mappedBy": "developer"
+    },
+    "appsOwned": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::app.app",
+      "mappedBy": "Owner"
+    },
+    "ownedBy": {
+      "type": "string"
+    },
+    "logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

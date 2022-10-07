@@ -71,7 +71,8 @@
     },
     "isAdmin": {
       "type": "boolean",
-      "required": true
+      "required": true,
+      "default": false
     },
     "posts": {
       "type": "relation",
@@ -84,6 +85,17 @@
       "relation": "oneToMany",
       "target": "api::app.app",
       "mappedBy": "author"
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }
