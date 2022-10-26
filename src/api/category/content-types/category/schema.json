@@ -14,13 +14,13 @@
   "attributes": {
     "name": {
       "type": "string",
-      "required": true
+      "required": true,
+      "unique": true
     },
     "ordered": {
       "type": "integer",
       "unique": true,
-      "required": true,
-      "default": 0
+      "required": true
     },
     "apps": {
       "type": "relation",

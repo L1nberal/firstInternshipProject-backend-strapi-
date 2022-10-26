@@ -63,22 +63,10 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "comments": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::comment.comment",
-      "mappedBy": "commentator"
-    },
     "isAdmin": {
       "type": "boolean",
       "required": true,
       "default": false
-    },
-    "posts": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::post.post",
-      "mappedBy": "users_permissions_user"
     },
     "apps": {
       "type": "relation",
@@ -96,6 +84,17 @@
         "videos",
         "audios"
       ]
+    },
+    "comment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::comment.comment",
+      "mappedBy": "commentator"
+    },
+    "fromDatabase": {
+      "type": "boolean",
+      "default": true,
+      "required": true
     }
   }
 }

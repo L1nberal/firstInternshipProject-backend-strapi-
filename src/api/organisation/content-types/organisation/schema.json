@@ -14,15 +14,18 @@
   "attributes": {
     "name": {
       "type": "text",
-      "required": true
+      "required": true,
+      "unique": true
     },
     "about": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true,
+      "maxLength": 2000
     },
     "photos": {
       "type": "media",
       "multiple": true,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
@@ -32,18 +35,23 @@
     },
     "email": {
       "type": "email",
-      "required": true
+      "required": true,
+      "unique": true
     },
     "address": {
       "type": "string",
-      "required": true
+      "required": true,
+      "unique": false
     },
     "phoneNumber": {
       "type": "integer",
-      "required": true
+      "required": true,
+      "unique": true
     },
     "website": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": true
     },
     "appsDeveloped": {
       "type": "relation",
@@ -51,24 +59,27 @@
       "target": "api::app.app",
       "mappedBy": "developer"
     },
-    "appsOwned": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::app.app",
-      "mappedBy": "Owner"
-    },
     "ownedBy": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": false
     },
     "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "appsOwned": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::app.app",
+      "mappedBy": "owner"
     }
   }
 }

@@ -29,9 +29,9 @@
     },
     "commentator": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToOne",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "comments"
+      "inversedBy": "comment"
     },
     "parent_Id": {
       "type": "integer",
@@ -44,6 +44,26 @@
       "relation": "manyToOne",
       "target": "api::app.app",
       "inversedBy": "comments"
+    },
+    "userId": {
+      "type": "integer",
+      "required": false,
+      "unique": false
+    },
+    "replyTo": {
+      "type": "string",
+      "required": true,
+      "default": "no one"
+    },
+    "other_login_methods_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::other-login-methods-user.other-login-methods-user",
+      "inversedBy": "comments"
+    },
+    "otherLoginMethodUserId": {
+      "type": "integer",
+      "required": false
     }
   }
 }

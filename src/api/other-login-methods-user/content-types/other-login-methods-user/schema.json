@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "other_login_methods_users",
+  "info": {
+    "singularName": "other-login-methods-user",
+    "pluralName": "other-login-methods-users",
+    "displayName": "otherLoginMethodsUsers",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "username": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "isAdmin": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "avatarLink": {
+      "type": "string",
+      "required": true
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "other_login_methods_user"
+    },
+    "fromDatabase": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

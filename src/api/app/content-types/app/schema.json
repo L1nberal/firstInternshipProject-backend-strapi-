@@ -13,12 +13,14 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "unique": true,
+      "required": true
     },
-    "photo": {
+    "logo": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
@@ -27,7 +29,9 @@
       ]
     },
     "description": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true,
+      "maxLength": 2000
     },
     "author": {
       "type": "relation",
@@ -35,17 +39,21 @@
       "target": "plugin::users-permissions.user",
       "inversedBy": "apps"
     },
-    "Owner": {
+    "owner": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::organisation.organisation",
       "inversedBy": "appsOwned"
     },
     "androidLink": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": true
     },
     "iosLink": {
-      "type": "string"
+      "type": "string",
+      "unique": true,
+      "required": true
     },
     "comments": {
       "type": "relation",
@@ -65,20 +73,10 @@
       "target": "api::organisation.organisation",
       "inversedBy": "appsDeveloped"
     },
-    "comment": {
-      "type": "component",
-      "repeatable": true,
-      "component": "comments.comments"
-    },
-    "parent": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::organisation.organisation"
-    },
     "screenshots": {
       "type": "media",
       "multiple": true,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
