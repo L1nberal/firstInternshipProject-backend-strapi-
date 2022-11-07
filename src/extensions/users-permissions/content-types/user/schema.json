@@ -77,7 +77,7 @@
     "avatar": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
@@ -91,10 +91,15 @@
       "target": "api::comment.comment",
       "mappedBy": "commentator"
     },
-    "fromDatabase": {
-      "type": "boolean",
-      "default": true,
-      "required": true
+    "organisations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::organisation.organisation",
+      "mappedBy": "auhor"
+    },
+    "from": {
+      "type": "string",
+      "default": "Database"
     }
   }
 }

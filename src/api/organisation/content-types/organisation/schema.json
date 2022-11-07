@@ -80,6 +80,12 @@
       "relation": "oneToMany",
       "target": "api::app.app",
       "mappedBy": "owner"
+    },
+    "auhor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "organisations"
     }
   }
 }

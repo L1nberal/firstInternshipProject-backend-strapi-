@@ -16,17 +16,6 @@
       "type": "text",
       "required": true
     },
-    "photos": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "commentator": {
       "type": "relation",
       "relation": "oneToOne",
@@ -36,8 +25,7 @@
     "parent_Id": {
       "type": "integer",
       "required": true,
-      "unique": false,
-      "default": 0
+      "unique": false
     },
     "app": {
       "type": "relation",
@@ -54,16 +42,6 @@
       "type": "string",
       "required": true,
       "default": "no one"
-    },
-    "other_login_methods_user": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::other-login-methods-user.other-login-methods-user",
-      "inversedBy": "comments"
-    },
-    "otherLoginMethodUserId": {
-      "type": "integer",
-      "required": false
     }
   }
 }
